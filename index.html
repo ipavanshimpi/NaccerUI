@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NaCCER AI Platform - National Centre for Coal and Energy Research, CMPDI - Login Portal">
+    <meta name="description"
+        content="NaCCER AI Platform - National Centre for Coal and Energy Research, CMPDI - Login Portal">
     <title>Login - NaCCER AI Platform | CMPDI</title>
-    
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Login Page Container -->
     <div class="login-page">
@@ -24,8 +27,8 @@
             <div class="login-header-content">
                 <div class="gov-emblem">
                     <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="25" cy="25" r="24" stroke="#1E3A8A" stroke-width="2"/>
-                        <path d="M25 10L28 20H38L30 26L33 36L25 30L17 36L20 26L12 20H22L25 10Z" fill="#1E3A8A"/>
+                        <circle cx="25" cy="25" r="24" stroke="#1E3A8A" stroke-width="2" />
+                        <path d="M25 10L28 20H38L30 26L33 36L25 30L17 36L20 26L12 20H22L25 10Z" fill="#1E3A8A" />
                     </svg>
                 </div>
                 <div class="gov-text">
@@ -50,15 +53,8 @@
                         <!-- Email/Username Input -->
                         <div class="form-group">
                             <label for="username" class="form-label form-label-required">Email or Username</label>
-                            <input 
-                                type="text" 
-                                id="username" 
-                                name="username" 
-                                class="form-input" 
-                                placeholder="Enter your email or username"
-                                required
-                                autocomplete="username"
-                            >
+                            <input type="text" id="username" name="username" class="form-input"
+                                placeholder="Enter your email or username" required autocomplete="username">
                             <span class="form-error" id="usernameError"></span>
                         </div>
 
@@ -66,17 +62,12 @@
                         <div class="form-group">
                             <label for="password" class="form-label form-label-required">Password</label>
                             <div class="password-input-wrapper">
-                                <input 
-                                    type="password" 
-                                    id="password" 
-                                    name="password" 
-                                    class="form-input" 
-                                    placeholder="Enter your password"
-                                    required
-                                    autocomplete="current-password"
-                                >
-                                <button type="button" class="password-toggle" id="togglePassword" aria-label="Toggle password visibility">
-                                    <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <input type="password" id="password" name="password" class="form-input"
+                                    placeholder="Enter your password" required autocomplete="current-password">
+                                <button type="button" class="password-toggle" id="togglePassword"
+                                    aria-label="Toggle password visibility">
+                                    <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                         <circle cx="12" cy="12" r="3"></circle>
                                     </svg>
@@ -96,7 +87,8 @@
 
                         <!-- Login Button -->
                         <button type="submit" class="btn btn-primary btn-block btn-lg">
-                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
                                 <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
                                 <polyline points="10 17 15 12 10 7"></polyline>
                                 <line x1="15" y1="12" x2="3" y2="12"></line>
@@ -111,7 +103,8 @@
 
                         <!-- Login with OTP Button -->
                         <button type="button" class="btn btn-secondary btn-block" id="otpLoginBtn">
-                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
                                 <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
                                 <line x1="12" y1="18" x2="12.01" y2="18"></line>
                             </svg>
@@ -123,7 +116,7 @@
                 <!-- Card Footer -->
                 <div class="login-card-footer">
                     <p class="login-help-text">
-                        Need help? Contact support at 
+                        Need help? Contact support at
                         <a href="mailto:support@naccer.gov.in">support@naccer.gov.in</a>
                     </p>
                 </div>
@@ -154,7 +147,7 @@
 
     <!-- JavaScript -->
     <script src="js/forms.js"></script>
-    
+
     <style>
         /* Login Page Specific Styles */
         .login-page {
@@ -413,4 +406,5 @@
         }
     </style>
 </body>
+
 </html>
