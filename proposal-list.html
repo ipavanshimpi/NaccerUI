@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse All Proposals - NaCCER AI Platform, CMPDI">
+    <title>All Proposals - NaCCER AI Platform | CMPDI</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="24" stroke="#FFFFFF" stroke-width="2" />
+                <path d="M25 10L28 20H38L30 26L33 36L25 30L17 36L20 26L12 20H22L25 10Z" fill="#FFFFFF" />
+            </svg>
+            <span>NaCCER AI Platform</span>
+        </div>
+
+        <ul class="navbar-menu hide-mobile">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="proposal-list.html" class="active">Proposals</a></li>
+            <li><a href="project-tracking.html">Projects</a></li>
+            <li><a href="repository.html">Repository</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+
+        <div class="navbar-user">
+            <div class="navbar-avatar">DR</div>
+            <span class="hide-mobile">Dr. Rajesh Kumar</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="proposal-list-main">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="dashboard.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Proposals</span>
+            </nav>
+
+            <!-- Page Header -->
+            <div class="page-header-with-action">
+                <div>
+                    <h1>All Proposals</h1>
+                    <p class="text-secondary">Browse and search research proposals</p>
+                </div>
+                <a href="proposal-submission.html" class="btn btn-primary">
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Submit New Proposal
+                </a>
+            </div>
+
+            <!-- Search and Filter Section -->
+            <div class="search-filter-section">
+                <div class="search-bar-container">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" class="search-input"
+                        placeholder="Search proposals by keywords, title, ID, or concepts...">
+                    <button class="search-clear-btn" id="clearSearch" style="display: none;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <button class="btn btn-secondary" id="filterToggleBtn">
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                    </svg>
+                    Filters
+                    <span class="filter-count" id="filterCount" style="display: none;">0</span>
+                </button>
+            </div>
+
+            <!-- Filter Panel (Hidden by default) -->
+            <div class="filter-panel" id="filterPanel" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Filter Proposals</h4>
+                        <button class="btn btn-sm btn-tertiary" id="clearFilters">Clear All</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="filter-grid">
+                            <!-- Status Filter -->
+                            <div class="filter-group">
+                                <label class="form-label">Status</label>
+                                <div class="filter-checkboxes">
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="status" value="submitted">
+                                        <span>Submitted</span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="status" value="under-review">
+                                        <span>Under Review</span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="status" value="approved">
+                                        <span>Approved</span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="status" value="rejected">
+                                        <span>Rejected</span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="status" value="in-progress">
+                                        <span>In Progress</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Category Filter -->
+                            <div class="filter-group">
+                                <label for="categoryFilter" class="form-label">Category</label>
+                                <select id="categoryFilter" class="form-select">
+                                    <option value="">All Categories</option>
+                                    <option value="coal-mining">Coal Mining Technology</option>
+                                    <option value="safety">Mine Safety & Health</option>
+                                    <option value="environment">Environmental Sustainability</option>
+                                    <option value="energy">Energy Efficiency</option>
+                                    <option value="automation">Automation & AI</option>
+                                    <option value="geology">Geological Survey</option>
+                                    <option value="renewable">Renewable Energy Integration</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <!-- Date Range Filter -->
+                            <div class="filter-group">
+                                <label class="form-label">Submission Date Range</label>
+                                <div class="date-range-inputs">
+                                    <input type="date" id="dateFrom" class="form-input" placeholder="From">
+                                    <span style="padding: 0 8px; color: var(--color-text-secondary);">to</span>
+                                    <input type="date" id="dateTo" class="form-input" placeholder="To">
+                                </div>
+                            </div>
+
+                            <!-- Budget Range Filter -->
+                            <div class="filter-group">
+                                <label class="form-label">Budget Range (₹ Lakhs)</label>
+                                <div class="budget-range-inputs">
+                                    <input type="number" id="budgetMin" class="form-input" placeholder="Min" min="0">
+                                    <span style="padding: 0 8px; color: var(--color-text-secondary);">to</span>
+                                    <input type="number" id="budgetMax" class="form-input" placeholder="Max" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Summary -->
+            <div class="results-summary">
+                <p class="results-count">Showing <strong id="resultsStart">1</strong>-<strong
+                        id="resultsEnd">20</strong> of <strong id="resultsTotal">247</strong> proposals</p>
+                <div class="results-controls">
+                    <label for="perPage" class="form-label" style="margin: 0; margin-right: 8px;">Per page:</label>
+                    <select id="perPage" class="form-select" style="width: auto;">
+                        <option value="10">10</option>
+                        <option value="25" selected>25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Proposals Table -->
+            <div class="card">
+                <div class="card-body" style="padding: 0;">
+                    <div class="table-wrapper">
+                        <table class="table" id="proposalsTable">
+                            <thead>
+                                <tr>
+                                    <th>Proposal ID</th>
+                                    <th>Title</th>
+                                    <th>Submitted By</th>
+                                    <th>Category</th>
+                                    <th>Submission Date</th>
+                                    <th>Status</th>
+                                    <th>AI Score</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="proposalsTableBody">
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="pagination" id="pagination">
+                <!-- Will be populated by JavaScript -->
+            </nav>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/proposal-list.js"></script>
+
+    <style>
+        /* Proposal List Specific Styles */
+        .proposal-list-main {
+            background-color: var(--color-bg-secondary);
+            min-height: calc(100vh - var(--header-height));
+            padding: var(--spacing-lg) 0;
+        }
+
+        .page-header-with-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .page-header-with-action h1 {
+            margin-bottom: 4px;
+        }
+
+        /* Search and Filter Section */
+        .search-filter-section {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .search-bar-container {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            color: var(--color-text-tertiary);
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            height: 48px;
+            padding: 12px 48px 12px 48px;
+            font-size: var(--font-size-base);
+            border: 1px solid var(--color-border-secondary);
+            border-radius: var(--radius-md);
+            background-color: #FFFFFF;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border: 2px solid var(--color-primary-blue);
+            box-shadow: 0 0 0 3px var(--color-focus-ring);
+            padding: 11px 47px 11px 47px;
+        }
+
+        .search-clear-btn {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--color-text-secondary);
+            border-radius: var(--radius-sm);
+        }
+
+        .search-clear-btn:hover {
+            background-color: var(--color-bg-secondary);
+            color: var(--color-text-primary);
+        }
+
+        .filter-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 6px;
+            background-color: var(--color-primary-blue);
+            color: #FFFFFF;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: var(--font-weight-semibold);
+            margin-left: 8px;
+        }
+
+        /* Filter Panel */
+        .filter-panel {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-checkboxes {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .date-range-inputs,
+        .budget-range-inputs {
+            display: flex;
+            align-items: center;
+        }
+
+        .date-range-inputs input,
+        .budget-range-inputs input {
+            flex: 1;
+        }
+
+        .filter-actions {
+            margin-top: var(--spacing-md);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Results Summary */
+        .results-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+            padding: var(--spacing-sm) 0;
+        }
+
+        .results-count {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+
+        .results-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Table Wrapper for Horizontal Scroll */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        /* AI Score Column */
+        .ai-score {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ai-score-value {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+        }
+
+        .ai-score-bar {
+            flex: 1;
+            height: 6px;
+            background-color: var(--color-bg-secondary);
+            border-radius: 3px;
+            overflow: hidden;
+            max-width: 60px;
+        }
+
+        .ai-score-fill {
+            height: 100%;
+            background-color: var(--color-success);
+            transition: width 0.3s ease;
+        }
+
+        .ai-score-fill.high {
+            background-color: var(--color-success);
+        }
+
+        .ai-score-fill.medium {
+            background-color: var(--color-warning);
+        }
+
+        .ai-score-fill.low {
+            background-color: var(--color-error);
+        }
+
+        /* Responsive */
+        @media (max-width: 1199px) {
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .page-header-with-action {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-sm);
+            }
+
+            .page-header-with-action .btn {
+                width: 100%;
+            }
+
+            .search-filter-section {
+                flex-direction: column;
+            }
+
+            .results-summary {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-sm);
+            }
+
+            .results-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</body>
+
+</html>

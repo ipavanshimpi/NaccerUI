@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit Research Proposal - NaCCER AI Platform, CMPDI">
+    <title>Submit Proposal - NaCCER AI Platform | CMPDI</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="24" stroke="#FFFFFF" stroke-width="2" />
+                <path d="M25 10L28 20H38L30 26L33 36L25 30L17 36L20 26L12 20H22L25 10Z" fill="#FFFFFF" />
+            </svg>
+            <span>NaCCER AI Platform</span>
+        </div>
+
+        <ul class="navbar-menu hide-mobile">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="proposal-list.html">Proposals</a></li>
+            <li><a href="project-tracking.html">Projects</a></li>
+            <li><a href="repository.html">Repository</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+
+        <div class="navbar-user">
+            <div class="navbar-avatar">DR</div>
+            <span class="hide-mobile">Dr. Rajesh Kumar</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="proposal-submission-main">
+        <div class="container container-sm">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="dashboard.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="proposal-list.html">Proposals</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Submit New Proposal</span>
+            </nav>
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Submit New Proposal</h1>
+                <p class="text-secondary">Complete all steps to submit your research proposal for evaluation</p>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="progress-steps">
+                <div class="progress-step active" data-step="1">
+                    <div class="progress-step-number">1</div>
+                    <div class="progress-step-label">Basic Information</div>
+                </div>
+                <div class="progress-step-line"></div>
+                <div class="progress-step" data-step="2">
+                    <div class="progress-step-number">2</div>
+                    <div class="progress-step-label">Detailed Description</div>
+                </div>
+                <div class="progress-step-line"></div>
+                <div class="progress-step" data-step="3">
+                    <div class="progress-step-number">3</div>
+                    <div class="progress-step-label">Document Upload</div>
+                </div>
+                <div class="progress-step-line"></div>
+                <div class="progress-step" data-step="4">
+                    <div class="progress-step-number">4</div>
+                    <div class="progress-step-label">Review & Submit</div>
+                </div>
+            </div>
+
+            <!-- Multi-Step Form -->
+            <div class="card">
+                <form id="proposalForm">
+                    <!-- Step 1: Basic Information -->
+                    <div class="form-step active" id="step1">
+                        <div class="card-header">
+                            <h3>Step 1: Basic Information</h3>
+                            <p class="text-secondary">Provide essential details about your research proposal</p>
+                        </div>
+                        <div class="card-body">
+                            <!-- Proposal Title -->
+                            <div class="form-group">
+                                <label for="proposalTitle" class="form-label form-label-required">Proposal Title</label>
+                                <input type="text" id="proposalTitle" name="proposalTitle" class="form-input"
+                                    placeholder="Enter a clear and concise title for your proposal" required
+                                    maxlength="200">
+                                <span class="form-helper">Maximum 200 characters</span>
+                                <span class="form-error" id="proposalTitleError"></span>
+                            </div>
+
+                            <!-- Category/Domain -->
+                            <div class="form-group">
+                                <label for="category" class="form-label form-label-required">Category/Domain</label>
+                                <select id="category" name="category" class="form-select" required>
+                                    <option value="">Select category</option>
+                                    <option value="coal-mining">Coal Mining Technology</option>
+                                    <option value="safety">Mine Safety & Health</option>
+                                    <option value="environment">Environmental Sustainability</option>
+                                    <option value="energy">Energy Efficiency</option>
+                                    <option value="automation">Automation & AI</option>
+                                    <option value="geology">Geological Survey</option>
+                                    <option value="renewable">Renewable Energy Integration</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="form-error" id="categoryError"></span>
+                            </div>
+
+                            <!-- Keywords -->
+                            <div class="form-group">
+                                <label for="keywords" class="form-label form-label-required">Keywords</label>
+                                <input type="text" id="keywords" name="keywords" class="form-input"
+                                    placeholder="Enter keywords separated by commas (e.g., AI, Coal Quality, Machine Learning)"
+                                    required>
+                                <span class="form-helper">Separate keywords with commas. Minimum 3 keywords.</span>
+                                <span class="form-error" id="keywordsError"></span>
+                            </div>
+
+                            <!-- Abstract -->
+                            <div class="form-group">
+                                <label for="abstract" class="form-label form-label-required">Abstract</label>
+                                <textarea id="abstract" name="abstract" class="form-textarea" rows="6"
+                                    placeholder="Provide a brief summary of your research proposal (maximum 500 words)"
+                                    required maxlength="3000"></textarea>
+                                <span class="form-helper">Maximum 500 words (approximately 3000 characters)</span>
+                                <span class="form-error" id="abstractError"></span>
+                            </div>
+
+                            <!-- Budget and Duration Row -->
+                            <div class="grid grid-cols-2 gap-md">
+                                <!-- Estimated Budget -->
+                                <div class="form-group">
+                                    <label for="budget" class="form-label form-label-required">Estimated Budget (₹
+                                        Lakhs)</label>
+                                    <input type="number" id="budget" name="budget" class="form-input"
+                                        placeholder="Enter budget in lakhs" required min="1" step="0.01">
+                                    <span class="form-error" id="budgetError"></span>
+                                </div>
+
+                                <!-- Project Duration -->
+                                <div class="form-group">
+                                    <label for="duration" class="form-label form-label-required">Project Duration
+                                        (Months)</label>
+                                    <input type="number" id="duration" name="duration" class="form-input"
+                                        placeholder="Enter duration" required min="1" max="60">
+                                    <span class="form-error" id="durationError"></span>
+                                </div>
+                            </div>
+
+                            <!-- Principal Investigator -->
+                            <div class="form-group">
+                                <label for="piName" class="form-label form-label-required">Principal Investigator
+                                    Name</label>
+                                <input type="text" id="piName" name="piName" class="form-input"
+                                    placeholder="Enter full name" required>
+                                <span class="form-error" id="piNameError"></span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-md">
+                                <!-- PI Email -->
+                                <div class="form-group">
+                                    <label for="piEmail" class="form-label form-label-required">PI Email</label>
+                                    <input type="email" id="piEmail" name="piEmail" class="form-input"
+                                        placeholder="email@example.com" required>
+                                    <span class="form-error" id="piEmailError"></span>
+                                </div>
+
+                                <!-- PI Phone -->
+                                <div class="form-group">
+                                    <label for="piPhone" class="form-label form-label-required">PI Phone</label>
+                                    <input type="tel" id="piPhone" name="piPhone" class="form-input"
+                                        placeholder="+91 XXXXXXXXXX" required pattern="[+]?[0-9]{10,15}">
+                                    <span class="form-error" id="piPhoneError"></span>
+                                </div>
+                            </div>
+
+                            <!-- PI Organization -->
+                            <div class="form-group">
+                                <label for="piOrganization" class="form-label form-label-required">PI
+                                    Organization/Institution</label>
+                                <input type="text" id="piOrganization" name="piOrganization" class="form-input"
+                                    placeholder="Enter organization name" required>
+                                <span class="form-error" id="piOrganizationError"></span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" onclick="saveDraft()">Save as
+                                    Draft</button>
+                                <button type="button" class="btn btn-primary" onclick="nextStep(1)">
+                                    Next: Detailed Description
+                                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" style="margin-left: 8px;">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Detailed Description -->
+                    <div class="form-step" id="step2">
+                        <div class="card-header">
+                            <h3>Step 2: Detailed Description</h3>
+                            <p class="text-secondary">Provide comprehensive details about your research</p>
+                        </div>
+                        <div class="card-body">
+                            <!-- Problem Statement -->
+                            <div class="form-group">
+                                <label for="problemStatement" class="form-label form-label-required">Problem
+                                    Statement</label>
+                                <textarea id="problemStatement" name="problemStatement" class="form-textarea" rows="6"
+                                    placeholder="Describe the problem or challenge your research aims to address"
+                                    required></textarea>
+                                <span class="form-helper">Clearly define the problem and its significance</span>
+                                <span class="form-error" id="problemStatementError"></span>
+                            </div>
+
+                            <!-- Objectives -->
+                            <div class="form-group">
+                                <label for="objectives" class="form-label form-label-required">Research
+                                    Objectives</label>
+                                <textarea id="objectives" name="objectives" class="form-textarea" rows="6"
+                                    placeholder="List the specific objectives of your research" required></textarea>
+                                <span class="form-helper">Provide clear, measurable objectives</span>
+                                <span class="form-error" id="objectivesError"></span>
+                            </div>
+
+                            <!-- Methodology -->
+                            <div class="form-group">
+                                <label for="methodology" class="form-label form-label-required">Methodology</label>
+                                <textarea id="methodology" name="methodology" class="form-textarea" rows="8"
+                                    placeholder="Describe the research methodology, approach, and techniques you will use"
+                                    required></textarea>
+                                <span class="form-helper">Include research design, data collection methods, and analysis
+                                    techniques</span>
+                                <span class="form-error" id="methodologyError"></span>
+                            </div>
+
+                            <!-- Expected Outcomes -->
+                            <div class="form-group">
+                                <label for="expectedOutcomes" class="form-label form-label-required">Expected
+                                    Outcomes</label>
+                                <textarea id="expectedOutcomes" name="expectedOutcomes" class="form-textarea" rows="6"
+                                    placeholder="Describe the anticipated results and impact of your research"
+                                    required></textarea>
+                                <span class="form-helper">Include deliverables, publications, and potential
+                                    applications</span>
+                                <span class="form-error" id="expectedOutcomesError"></span>
+                            </div>
+
+                            <!-- Innovation Aspect -->
+                            <div class="form-group">
+                                <label for="innovation" class="form-label">Innovation & Novelty</label>
+                                <textarea id="innovation" name="innovation" class="form-textarea" rows="5"
+                                    placeholder="Describe what makes your research innovative and unique (optional)"></textarea>
+                                <span class="form-helper">Highlight novel approaches, technologies, or
+                                    methodologies</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" onclick="previousStep(2)">
+                                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                    Back
+                                </button>
+                                <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+                                    Next: Document Upload
+                                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" style="margin-left: 8px;">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Document Upload -->
+                    <div class="form-step" id="step3">
+                        <div class="card-header">
+                            <h3>Step 3: Document Upload</h3>
+                            <p class="text-secondary">Upload required documents (PDF, DOC, DOCX - Max 50MB per file)</p>
+                        </div>
+                        <div class="card-body">
+                            <!-- Proposal Document -->
+                            <div class="form-group">
+                                <label class="form-label form-label-required">Proposal Document</label>
+                                <div class="file-upload-area" id="proposalDocUpload">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                    <p class="file-upload-text">Drag and drop your file here or <span
+                                            class="file-upload-browse">browse</span></p>
+                                    <p class="file-upload-hint">PDF, DOC, DOCX (Max 50MB)</p>
+                                    <input type="file" id="proposalDoc" name="proposalDoc" accept=".pdf,.doc,.docx"
+                                        hidden required>
+                                </div>
+                                <div id="proposalDocList" class="uploaded-files-list"></div>
+                                <span class="form-error" id="proposalDocError"></span>
+                            </div>
+
+                            <!-- Budget Breakdown -->
+                            <div class="form-group">
+                                <label class="form-label form-label-required">Budget Breakdown</label>
+                                <div class="file-upload-area" id="budgetDocUpload">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                    <p class="file-upload-text">Drag and drop your file here or <span
+                                            class="file-upload-browse">browse</span></p>
+                                    <p class="file-upload-hint">PDF, DOC, DOCX, XLS, XLSX (Max 50MB)</p>
+                                    <input type="file" id="budgetDoc" name="budgetDoc"
+                                        accept=".pdf,.doc,.docx,.xls,.xlsx" hidden required>
+                                </div>
+                                <div id="budgetDocList" class="uploaded-files-list"></div>
+                                <span class="form-error" id="budgetDocError"></span>
+                            </div>
+
+                            <!-- Supporting Documents -->
+                            <div class="form-group">
+                                <label class="form-label">Supporting Documents (Optional)</label>
+                                <div class="file-upload-area" id="supportingDocsUpload">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                    <p class="file-upload-text">Drag and drop files here or <span
+                                            class="file-upload-browse">browse</span></p>
+                                    <p class="file-upload-hint">Multiple files allowed. PDF, DOC, DOCX (Max 50MB each)
+                                    </p>
+                                    <input type="file" id="supportingDocs" name="supportingDocs"
+                                        accept=".pdf,.doc,.docx" multiple hidden>
+                                </div>
+                                <div id="supportingDocsList" class="uploaded-files-list"></div>
+                            </div>
+
+                            <!-- References -->
+                            <div class="form-group">
+                                <label class="form-label">References (Optional)</label>
+                                <div class="file-upload-area" id="referencesUpload">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                    <p class="file-upload-text">Drag and drop your file here or <span
+                                            class="file-upload-browse">browse</span></p>
+                                    <p class="file-upload-hint">PDF, DOC, DOCX (Max 50MB)</p>
+                                    <input type="file" id="references" name="references" accept=".pdf,.doc,.docx"
+                                        hidden>
+                                </div>
+                                <div id="referencesList" class="uploaded-files-list"></div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" onclick="previousStep(3)">
+                                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                    Back
+                                </button>
+                                <button type="button" class="btn btn-primary" onclick="nextStep(3)">
+                                    Next: Review & Submit
+                                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" style="margin-left: 8px;">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Review & Submit -->
+                    <div class="form-step" id="step4">
+                        <div class="card-header">
+                            <h3>Step 4: Review & Submit</h3>
+                            <p class="text-secondary">Review all information before submitting your proposal</p>
+                        </div>
+                        <div class="card-body">
+                            <!-- Summary Section -->
+                            <div id="reviewSummary" class="review-summary">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="form-group mt-lg">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" id="termsAccept" name="termsAccept" required>
+                                    <span>I confirm that all information provided is accurate and complete</span>
+                                </label>
+                                <span class="form-error" id="termsAcceptError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" id="termsAgree" name="termsAgree" required>
+                                    <span>I agree to the <a href="#" target="_blank">terms and conditions</a> and <a
+                                            href="#" target="_blank">submission guidelines</a></span>
+                                </label>
+                                <span class="form-error" id="termsAgreeError"></span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" onclick="previousStep(4)">
+                                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                    Back
+                                </button>
+                                <div style="display: flex; gap: 12px;">
+                                    <button type="button" class="btn btn-secondary" onclick="saveDraft()">Save as
+                                        Draft</button>
+                                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        Submit Proposal
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal (Hidden by default) -->
+    <div class="modal-overlay" id="successModal" style="display: none;">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3>Proposal Submitted Successfully!</h3>
+            </div>
+            <div class="modal-body text-center">
+                <div style="margin: 24px 0;">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"
+                        style="margin: 0 auto;">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="8 12 11 15 16 9"></polyline>
+                    </svg>
+                </div>
+                <p class="font-semibold" style="font-size: 18px; margin-bottom: 8px;">Your proposal has been submitted
+                    successfully!</p>
+                <p class="text-secondary" style="margin-bottom: 16px;">Your unique Proposal ID is:</p>
+                <div
+                    style="background-color: var(--color-bg-secondary); padding: 16px; border-radius: 6px; margin-bottom: 24px;">
+                    <p class="monospace" style="font-size: 24px; font-weight: 600; color: var(--color-primary-blue);"
+                        id="proposalId">NACCER-2024-001247</p>
+                </div>
+                <div class="alert alert-info" style="text-align: left;">
+                    <div class="alert-content">
+                        <p class="font-semibold" style="margin-bottom: 8px;">Next Steps:</p>
+                        <ul style="list-style: disc; margin-left: 20px; font-size: 14px;">
+                            <li>AI evaluation will begin within 24 hours</li>
+                            <li>You will receive email notifications on progress</li>
+                            <li>Track your proposal status in the dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="window.location.href='proposal-list.html'">View All
+                    Proposals</button>
+                <button class="btn btn-primary" onclick="window.location.href='dashboard.html'">Go to Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/proposal-submission.js"></script>
+
+    <style>
+        /* Proposal Submission Specific Styles */
+        .proposal-submission-main {
+            background-color: var(--color-bg-secondary);
+            min-height: calc(100vh - var(--header-height));
+            padding: var(--spacing-lg) 0;
+        }
+
+        .page-header {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .page-header h1 {
+            margin-bottom: 8px;
+        }
+
+        /* Progress Steps */
+        .progress-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-md);
+            background-color: #FFFFFF;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border-primary);
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-xs);
+            position: relative;
+        }
+
+        .progress-step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--color-bg-secondary);
+            border: 2px solid var(--color-border-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active .progress-step-number {
+            background-color: var(--color-primary-blue);
+            border-color: var(--color-primary-blue);
+            color: #FFFFFF;
+        }
+
+        .progress-step.completed .progress-step-number {
+            background-color: var(--color-success);
+            border-color: var(--color-success);
+            color: #FFFFFF;
+        }
+
+        .progress-step-label {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            font-weight: var(--font-weight-medium);
+            text-align: center;
+            max-width: 120px;
+        }
+
+        .progress-step.active .progress-step-label {
+            color: var(--color-primary-blue);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .progress-step-line {
+            width: 80px;
+            height: 2px;
+            background-color: var(--color-border-secondary);
+            margin: 0 8px;
+        }
+
+        .progress-step.completed+.progress-step-line {
+            background-color: var(--color-success);
+        }
+
+        /* Form Steps */
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        /* File Upload Area */
+        .file-upload-area {
+            border: 2px dashed var(--color-border-secondary);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background-color: var(--color-bg-tertiary);
+        }
+
+        .file-upload-area:hover {
+            border-color: var(--color-primary-blue);
+            background-color: var(--color-hover-bg);
+        }
+
+        .file-upload-area svg {
+            color: var(--color-text-tertiary);
+            margin: 0 auto 12px;
+        }
+
+        .file-upload-text {
+            font-size: 15px;
+            color: var(--color-text-primary);
+            margin-bottom: 4px;
+        }
+
+        .file-upload-browse {
+            color: var(--color-primary-blue);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+        }
+
+        .file-upload-browse:hover {
+            text-decoration: underline;
+        }
+
+        .file-upload-hint {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+
+        /* Uploaded Files List */
+        .uploaded-files-list {
+            margin-top: var(--spacing-sm);
+        }
+
+        .uploaded-file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background-color: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: var(--radius-md);
+            margin-bottom: 8px;
+        }
+
+        .uploaded-file-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .uploaded-file-icon {
+            width: 32px;
+            height: 32px;
+            background-color: var(--color-primary-blue);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+        }
+
+        .uploaded-file-details {
+            flex: 1;
+        }
+
+        .uploaded-file-name {
+            font-size: 14px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-primary);
+            margin-bottom: 2px;
+        }
+
+        .uploaded-file-size {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+        }
+
+        .uploaded-file-remove {
+            background: none;
+            border: none;
+            color: var(--color-error);
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .uploaded-file-remove:hover {
+            color: var(--color-error-dark);
+        }
+
+        /* Review Summary */
+        .review-summary {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .review-section {
+            background-color: var(--color-bg-secondary);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border-primary);
+        }
+
+        .review-section-title {
+            font-size: 16px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-sm);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--color-border-primary);
+        }
+
+        .review-item {
+            display: flex;
+            margin-bottom: 12px;
+        }
+
+        .review-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .review-label {
+            font-size: 14px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            min-width: 180px;
+        }
+
+        .review-value {
+            font-size: 14px;
+            color: var(--color-text-primary);
+            flex: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 767px) {
+            .progress-steps {
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+
+            .progress-step-line {
+                width: 40px;
+            }
+
+            .progress-step-label {
+                font-size: 11px;
+                max-width: 80px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .form-actions>* {
+                width: 100%;
+            }
+
+            .review-item {
+                flex-direction: column;
+            }
+
+            .review-label {
+                min-width: auto;
+                margin-bottom: 4px;
+            }
+        }
+    </style>
+</body>
+
+</html>

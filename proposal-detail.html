@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proposal Details - NaCCER AI Platform, CMPDI">
+    <title>Proposal Details - NaCCER AI Platform | CMPDI</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="24" stroke="#FFFFFF" stroke-width="2" />
+                <path d="M25 10L28 20H38L30 26L33 36L25 30L17 36L20 26L12 20H22L25 10Z" fill="#FFFFFF" />
+            </svg>
+            <span>NaCCER AI Platform</span>
+        </div>
+
+        <ul class="navbar-menu hide-mobile">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="proposal-list.html" class="active">Proposals</a></li>
+            <li><a href="project-tracking.html">Projects</a></li>
+            <li><a href="repository.html">Repository</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+
+        <div class="navbar-user">
+            <div class="navbar-avatar">DR</div>
+            <span class="hide-mobile">Dr. Rajesh Kumar</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="proposal-detail-main">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="dashboard.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="proposal-list.html">Proposals</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Proposal Details</span>
+            </nav>
+
+            <!-- Proposal Header -->
+            <div class="proposal-header">
+                <div class="proposal-header-content">
+                    <div class="proposal-header-meta">
+                        <span class="monospace proposal-id" id="proposalId">PROP-2024-1247</span>
+                        <span class="badge badge-warning" id="proposalStatus">Under Review</span>
+                    </div>
+                    <h1 id="proposalTitle">AI-Based Coal Quality Assessment System</h1>
+                    <div class="proposal-header-info">
+                        <div class="info-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span id="submittedBy">Dr. Rajesh Kumar</span>
+                        </div>
+                        <div class="info-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span id="submissionDate">Submitted on Feb 08, 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proposal-header-actions">
+                    <button class="btn btn-secondary">
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download Report
+                    </button>
+                    <button class="btn btn-tertiary">
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                        Edit
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab active" data-tab="overview" onclick="switchTab('overview')">Overview</button>
+                    <button class="tab" data-tab="ai-evaluation" onclick="switchTab('ai-evaluation')">AI
+                        Evaluation</button>
+                    <button class="tab" data-tab="reviews" onclick="switchTab('reviews')">Reviews</button>
+                    <button class="tab" data-tab="documents" onclick="switchTab('documents')">Documents</button>
+                    <button class="tab" data-tab="activity" onclick="switchTab('activity')">Activity Log</button>
+                </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content-container">
+                <!-- Overview Tab -->
+                <div class="tab-content active" id="overview-tab">
+                    <div class="grid grid-cols-3 gap-md">
+                        <!-- Main Content (2 columns) -->
+                        <div style="grid-column: span 2;">
+                            <!-- Basic Information Card -->
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3>Basic Information</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="detail-grid">
+                                        <div class="detail-item">
+                                            <div class="detail-label">Category</div>
+                                            <div class="detail-value" id="category">Automation & AI</div>
+                                        </div>
+                                        <div class="detail-item">
+                                            <div class="detail-label">Budget</div>
+                                            <div class="detail-value" id="budget">₹ 125.5 Lakhs</div>
+                                        </div>
+                                        <div class="detail-item">
+                                            <div class="detail-label">Duration</div>
+                                            <div class="detail-value" id="duration">18 Months</div>
+                                        </div>
+                                        <div class="detail-item">
+                                            <div class="detail-label">Principal Investigator</div>
+                                            <div class="detail-value" id="piName">Dr. Rajesh Kumar</div>
+                                        </div>
+                                        <div class="detail-item">
+                                            <div class="detail-label">Organization</div>
+                                            <div class="detail-value" id="organization">IIT Delhi</div>
+                                        </div>
+                                        <div class="detail-item">
+                                            <div class="detail-label">Contact</div>
+                                            <div class="detail-value" id="contact">rajesh.kumar@iitd.ac.in</div>
+                                        </div>
+                                    </div>
+                                    <div class="detail-item mt-md">
+                                        <div class="detail-label">Keywords</div>
+                                        <div class="detail-value">
+                                            <div class="keywords-list" id="keywords">
+                                                <span class="badge badge-neutral">Artificial Intelligence</span>
+                                                <span class="badge badge-neutral">Coal Quality</span>
+                                                <span class="badge badge-neutral">Machine Learning</span>
+                                                <span class="badge badge-neutral">Computer Vision</span>
+                                                <span class="badge badge-neutral">Automation</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Abstract -->
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3>Abstract</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p id="abstract" class="text-content">
+                                        This research proposes an innovative AI-based system for automated coal quality
+                                        assessment using advanced machine learning and computer vision techniques. The
+                                        system aims to revolutionize traditional coal quality testing methods by
+                                        providing real-time, accurate, and non-destructive analysis of coal samples. By
+                                        leveraging deep learning algorithms and spectroscopic imaging, the proposed
+                                        solution will significantly reduce assessment time from hours to minutes while
+                                        improving accuracy by 25%. The system will be designed to integrate seamlessly
+                                        with existing mining operations and provide actionable insights for quality
+                                        control and optimization.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Problem Statement -->
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3>Problem Statement</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p id="problemStatement" class="text-content">
+                                        Current coal quality assessment methods are time-consuming, labor-intensive, and
+                                        often require destructive testing of samples. Traditional laboratory analysis
+                                        can take 4-6 hours per sample, creating bottlenecks in production and quality
+                                        control processes. Additionally, manual assessment is prone to human error and
+                                        lacks consistency across different operators and facilities. The coal mining
+                                        industry urgently needs an automated, accurate, and rapid quality assessment
+                                        solution that can operate in real-time at mining sites without requiring
+                                        extensive sample preparation or specialized laboratory equipment.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Objectives -->
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3>Research Objectives</h3>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="objectives-list" id="objectives">
+                                        <li>Develop a deep learning model capable of analyzing coal quality parameters
+                                            with 95% accuracy</li>
+                                        <li>Create a portable, field-deployable system for on-site coal quality
+                                            assessment</li>
+                                        <li>Reduce assessment time from 4-6 hours to under 5 minutes per sample</li>
+                                        <li>Implement computer vision algorithms for automated sample analysis</li>
+                                        <li>Design user-friendly interface for operators with minimal technical training
+                                        </li>
+                                        <li>Validate system performance across different coal types and mining
+                                            conditions</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Methodology -->
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3>Methodology</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p id="methodology" class="text-content">
+                                        The research will employ a multi-phase approach combining machine learning,
+                                        computer vision, and spectroscopic analysis. Phase 1 will focus on data
+                                        collection, gathering a comprehensive dataset of coal samples with known quality
+                                        parameters from various mines across India. Phase 2 will involve developing and
+                                        training convolutional neural networks (CNNs) for image-based quality
+                                        assessment, utilizing transfer learning from pre-trained models. Phase 3 will
+                                        integrate spectroscopic sensors with the imaging system to capture additional
+                                        chemical composition data. Phase 4 will focus on system integration, developing
+                                        a portable hardware platform with embedded AI processing capabilities. The final
+                                        phase will involve extensive field testing and validation across multiple mining
+                                        sites, with iterative refinement based on real-world performance data.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Expected Outcomes -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Expected Outcomes</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p id="expectedOutcomes" class="text-content">
+                                        The project will deliver a fully functional AI-based coal quality assessment
+                                        system capable of real-time analysis with 95% accuracy. Key deliverables
+                                        include: (1) Trained machine learning models for coal quality prediction, (2)
+                                        Portable hardware prototype with integrated sensors and processing unit, (3)
+                                        User-friendly software interface with data visualization and reporting
+                                        capabilities, (4) Comprehensive validation report demonstrating system
+                                        performance across different coal types, (5) Technical documentation and user
+                                        manuals, (6) At least 2 peer-reviewed publications in international journals,
+                                        (7) Patent application for the novel assessment methodology. The system is
+                                        expected to reduce quality assessment costs by 60% and improve operational
+                                        efficiency in coal mining operations.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar (1 column) -->
+                        <div>
+                            <!-- Quick Stats -->
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h4>Quick Stats</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="stat-item">
+                                        <div class="stat-label">AI Overall Score</div>
+                                        <div class="stat-value-large">84/100</div>
+                                        <div class="progress mt-xs">
+                                            <div class="progress-bar"
+                                                style="width: 84%; background-color: var(--color-success);"></div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item mt-md">
+                                        <div class="stat-label">Reviewers Assigned</div>
+                                        <div class="stat-value-large">3</div>
+                                    </div>
+                                    <div class="stat-item mt-md">
+                                        <div class="stat-label">Reviews Completed</div>
+                                        <div class="stat-value-large">1/3</div>
+                                    </div>
+                                    <div class="stat-item mt-md">
+                                        <div class="stat-label">Days in Review</div>
+                                        <div class="stat-value-large">12</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Timeline -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Key Dates</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="timeline-item">
+                                        <div class="timeline-label">Submitted</div>
+                                        <div class="timeline-value">Feb 08, 2024</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-label">AI Evaluation</div>
+                                        <div class="timeline-value">Feb 09, 2024</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-label">Review Deadline</div>
+                                        <div class="timeline-value">Feb 22, 2024</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-label">Decision Expected</div>
+                                        <div class="timeline-value">Feb 29, 2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Evaluation Tab -->
+                <div class="tab-content" id="ai-evaluation-tab">
+                    <div class="grid grid-cols-2 gap-md">
+                        <!-- Overall Score Card -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Overall AI Score</h3>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="ai-score-circle">
+                                    <svg width="200" height="200" viewBox="0 0 200 200">
+                                        <circle cx="100" cy="100" r="90" fill="none" stroke="var(--color-bg-secondary)"
+                                            stroke-width="12"></circle>
+                                        <circle cx="100" cy="100" r="90" fill="none" stroke="var(--color-success)"
+                                            stroke-width="12" stroke-dasharray="565.48" stroke-dashoffset="90.48"
+                                            transform="rotate(-90 100 100)" stroke-linecap="round"></circle>
+                                        <text x="100" y="100" text-anchor="middle" dy="10" font-size="48"
+                                            font-weight="700" fill="var(--color-text-primary)">84</text>
+                                        <text x="100" y="130" text-anchor="middle" font-size="16"
+                                            fill="var(--color-text-secondary)">out of 100</text>
+                                    </svg>
+                                </div>
+                                <p class="text-secondary mt-md">
+                                    This proposal demonstrates strong potential with excellent methodology and clear
+                                    objectives.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Score Breakdown Chart -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Score Breakdown</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="scoreBreakdownChart" height="250"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Rationale -->
+                    <div class="card mt-md">
+                        <div class="card-header">
+                            <h3>AI Evaluation Rationale</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="rationale-section">
+                                <h4 class="rationale-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="var(--color-success)" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Strengths
+                                </h4>
+                                <ul class="rationale-list">
+                                    <li>Novel application of deep learning to coal quality assessment addresses a
+                                        significant industry need</li>
+                                    <li>Well-defined methodology with clear phases and deliverables</li>
+                                    <li>Strong potential for practical implementation and commercialization</li>
+                                    <li>Comprehensive validation plan across multiple mining sites</li>
+                                    <li>Experienced principal investigator with relevant expertise</li>
+                                </ul>
+                            </div>
+                            <div class="rationale-section mt-md">
+                                <h4 class="rationale-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="var(--color-warning)" stroke-width="2">
+                                        <path
+                                            d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                        </path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                    Areas for Improvement
+                                </h4>
+                                <ul class="rationale-list">
+                                    <li>Budget justification could be more detailed, particularly for hardware
+                                        components</li>
+                                    <li>Risk mitigation strategies for potential technical challenges should be expanded
+                                    </li>
+                                    <li>Timeline for Phase 4 (system integration) appears optimistic and may need
+                                        extension</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Similarity Detection -->
+                    <div class="card mt-md">
+                        <div class="card-header">
+                            <h3>Similarity Detection</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info">
+                                <div class="alert-content">
+                                    <p class="font-semibold mb-xs">No significant similarity detected</p>
+                                    <p class="text-sm">This proposal shows less than 15% similarity with existing
+                                        proposals in the database, indicating strong originality.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div class="tab-content" id="reviews-tab">
+                    <!-- Reviewer Assignments -->
+                    <div class="card mb-md">
+                        <div class="card-header">
+                            <h3>Assigned Reviewers</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="reviewers-list">
+                                <div class="reviewer-item">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">PS</div>
+                                        <div>
+                                            <div class="reviewer-name">Prof. Priya Sharma</div>
+                                            <div class="reviewer-expertise">Expertise: Machine Learning, Computer Vision
+                                            </div>
+                                            <div class="reviewer-meta">Assigned on Feb 09, 2024</div>
+                                        </div>
+                                    </div>
+                                    <div class="reviewer-status">
+                                        <span class="badge badge-success">Completed</span>
+                                    </div>
+                                </div>
+                                <div class="reviewer-item">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">AM</div>
+                                        <div>
+                                            <div class="reviewer-name">Dr. Anil Mehta</div>
+                                            <div class="reviewer-expertise">Expertise: Coal Mining Technology</div>
+                                            <div class="reviewer-meta">Assigned on Feb 09, 2024</div>
+                                        </div>
+                                    </div>
+                                    <div class="reviewer-status">
+                                        <span class="badge badge-warning">In Progress</span>
+                                    </div>
+                                </div>
+                                <div class="reviewer-item">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">SK</div>
+                                        <div>
+                                            <div class="reviewer-name">Dr. Sunita Kulkarni</div>
+                                            <div class="reviewer-expertise">Expertise: Industrial Automation</div>
+                                            <div class="reviewer-meta">Assigned on Feb 09, 2024</div>
+                                        </div>
+                                    </div>
+                                    <div class="reviewer-status">
+                                        <span class="badge badge-neutral">Pending</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Individual Reviews -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Individual Reviews</h3>
+                        </div>
+                        <div class="card-body">
+                            <!-- Review 1 -->
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">PS</div>
+                                        <div>
+                                            <div class="reviewer-name">Prof. Priya Sharma</div>
+                                            <div class="review-date">Reviewed on Feb 15, 2024</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-score">
+                                        <span class="score-label">Score:</span>
+                                        <span class="score-value">88/100</span>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <h4>Comments</h4>
+                                    <p>This is an excellent proposal with a well-thought-out methodology. The use of
+                                        deep learning for coal quality assessment is innovative and addresses a real
+                                        industry problem. The research objectives are clear and achievable. The PI has
+                                        demonstrated strong expertise in the field. I particularly appreciate the
+                                        comprehensive validation plan. My only concern is the timeline for Phase 4,
+                                        which may be too ambitious. I recommend extending it by 2-3 months to account
+                                        for potential integration challenges.</p>
+
+                                    <h4 class="mt-md">Strengths</h4>
+                                    <ul>
+                                        <li>Novel application of AI technology</li>
+                                        <li>Clear and achievable objectives</li>
+                                        <li>Strong validation methodology</li>
+                                    </ul>
+
+                                    <h4 class="mt-md">Recommendations</h4>
+                                    <ul>
+                                        <li>Extend Phase 4 timeline</li>
+                                        <li>Include more details on data security measures</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Pending Reviews Message -->
+                            <div class="alert alert-info mt-md">
+                                <div class="alert-content">
+                                    <p>2 reviews are still pending. You will be notified when all reviews are completed.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Tab -->
+                <div class="tab-content" id="documents-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Uploaded Documents</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="documents-list">
+                                <div class="document-item">
+                                    <div class="document-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="document-info">
+                                        <div class="document-name">Proposal_Document.pdf</div>
+                                        <div class="document-meta">PDF • 2.4 MB • Uploaded on Feb 08, 2024</div>
+                                    </div>
+                                    <div class="document-actions">
+                                        <button class="btn btn-sm btn-tertiary">
+                                            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                            Preview
+                                        </button>
+                                        <button class="btn btn-sm btn-tertiary">
+                                            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                            Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="document-item">
+                                    <div class="document-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="document-info">
+                                        <div class="document-name">Budget_Breakdown.xlsx</div>
+                                        <div class="document-meta">Excel • 156 KB • Uploaded on Feb 08, 2024</div>
+                                    </div>
+                                    <div class="document-actions">
+                                        <button class="btn btn-sm btn-tertiary">
+                                            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                            Preview
+                                        </button>
+                                        <button class="btn btn-sm btn-tertiary">
+                                            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                            Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="document-item">
+                                    <div class="document-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="document-info">
+                                        <div class="document-name">Technical_Specifications.pdf</div>
+                                        <div class="document-meta">PDF • 1.8 MB • Uploaded on Feb 08, 2024</div>
+                                    </div>
+                                    <div class="document-actions">
+                                        <button class="btn btn-sm btn-tertiary">
+                                            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                            Preview
+                                        </button>
+                                        <button class="btn btn-sm btn-tertiary">
+                                            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                            Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="document-item">
+                                    <div class="document-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="document-info">
+                                        <div class="document-name">References.pdf</div>
+                                        <div class="document-meta">PDF • 892 KB • Uploaded on Feb 08, 2024</div>
+                                    </div>
+                                    <div class="document-actions">
+                                        <button class="btn btn-sm btn-tertiary">
+                                            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                            Preview
+                                        </button>
+                                        <button class="btn btn-sm btn-tertiary">
+                                            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                            Download
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Log Tab -->
+                <div class="tab-content" id="activity-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Activity Timeline</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="activity-timeline">
+                                <div class="activity-item">
+                                    <div class="activity-icon activity-icon-success">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Review Completed by Prof. Priya Sharma</div>
+                                        <div class="activity-meta">Feb 15, 2024 at 3:45 PM</div>
+                                        <div class="activity-description">Score: 88/100 - Positive feedback with minor
+                                            recommendations</div>
+                                    </div>
+                                </div>
+
+                                <div class="activity-item">
+                                    <div class="activity-icon activity-icon-info">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Reviewers Assigned</div>
+                                        <div class="activity-meta">Feb 09, 2024 at 10:30 AM</div>
+                                        <div class="activity-description">3 reviewers assigned: Prof. Priya Sharma, Dr.
+                                            Anil Mehta, Dr. Sunita Kulkarni</div>
+                                    </div>
+                                </div>
+
+                                <div class="activity-item">
+                                    <div class="activity-icon activity-icon-success">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="activity-title">AI Evaluation Completed</div>
+                                        <div class="activity-meta">Feb 09, 2024 at 9:15 AM</div>
+                                        <div class="activity-description">Overall AI Score: 84/100 - Strong potential
+                                            identified</div>
+                                    </div>
+                                </div>
+
+                                <div class="activity-item">
+                                    <div class="activity-icon activity-icon-info">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="activity-title">AI Evaluation Started</div>
+                                        <div class="activity-meta">Feb 08, 2024 at 5:30 PM</div>
+                                        <div class="activity-description">Automated evaluation process initiated</div>
+                                    </div>
+                                </div>
+
+                                <div class="activity-item">
+                                    <div class="activity-icon activity-icon-success">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="17 8 12 3 7 8"></polyline>
+                                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Proposal Submitted</div>
+                                        <div class="activity-meta">Feb 08, 2024 at 2:15 PM</div>
+                                        <div class="activity-description">Submitted by Dr. Rajesh Kumar - All required
+                                            documents uploaded</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/proposal-detail.js"></script>
+
+    <style>
+        /* Proposal Detail Specific Styles */
+        .proposal-detail-main {
+            background-color: var(--color-bg-secondary);
+            min-height: calc(100vh - var(--header-height));
+            padding: var(--spacing-lg) 0;
+        }
+
+        /* Proposal Header */
+        .proposal-header {
+            background-color: #FFFFFF;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border-primary);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .proposal-header-content {
+            flex: 1;
+        }
+
+        .proposal-header-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .proposal-id {
+            font-size: 14px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-secondary);
+        }
+
+        .proposal-header h1 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .proposal-header-info {
+            display: flex;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        .info-item svg {
+            color: var(--color-text-tertiary);
+        }
+
+        .proposal-header-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        /* Detail Grid */
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 13px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font-size: 15px;
+            color: var(--color-text-primary);
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .text-content {
+            line-height: 1.7;
+            color: var(--color-text-primary);
+        }
+
+        .objectives-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .objectives-list li {
+            padding-left: 24px;
+            margin-bottom: 12px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .objectives-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: bold;
+        }
+
+        /* Quick Stats */
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .stat-value-large {
+            font-size: 32px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-primary);
+        }
+
+        /* Timeline */
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--color-border-primary);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-label {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        .timeline-value {
+            font-size: 14px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-primary);
+        }
+
+        /* AI Score Circle */
+        .ai-score-circle {
+            margin: var(--spacing-lg) 0;
+        }
+
+        /* Rationale */
+        .rationale-section {
+            padding: var(--spacing-md);
+            background-color: var(--color-bg-secondary);
+            border-radius: var(--radius-md);
+        }
+
+        .rationale-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .rationale-list {
+            margin-left: 20px;
+            line-height: 1.7;
+        }
+
+        .rationale-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Reviewers */
+        .reviewers-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .reviewer-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md);
+            background-color: var(--color-bg-secondary);
+            border-radius: var(--radius-md);
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .reviewer-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--color-primary-blue);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-semibold);
+            font-size: 16px;
+        }
+
+        .reviewer-name {
+            font-size: 15px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin-bottom: 2px;
+        }
+
+        .reviewer-expertise {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .reviewer-meta {
+            font-size: 12px;
+            color: var(--color-text-tertiary);
+        }
+
+        /* Review Card */
+        .review-card {
+            padding: var(--spacing-md);
+            background-color: var(--color-bg-secondary);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--color-border-primary);
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: var(--color-text-tertiary);
+        }
+
+        .review-score {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .score-label {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+
+        .score-value {
+            font-size: 24px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-success);
+        }
+
+        .review-content h4 {
+            font-size: 14px;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: 8px;
+            color: var(--color-text-primary);
+        }
+
+        .review-content p,
+        .review-content ul {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--color-text-primary);
+        }
+
+        .review-content ul {
+            margin-left: 20px;
+        }
+
+        /* Documents */
+        .documents-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md);
+            background-color: var(--color-bg-secondary);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border-primary);
+        }
+
+        .document-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--color-primary-blue);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+        }
+
+        .document-info {
+            flex: 1;
+        }
+
+        .document-name {
+            font-size: 15px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-primary);
+            margin-bottom: 2px;
+        }
+
+        .document-meta {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Activity Timeline */
+        .activity-timeline {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) 0;
+            border-left: 2px solid var(--color-border-secondary);
+            margin-left: 12px;
+            position: relative;
+        }
+
+        .activity-item:last-child {
+            border-left-color: transparent;
+        }
+
+        .activity-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: -17px;
+            background-color: #FFFFFF;
+            border: 2px solid var(--color-border-secondary);
+        }
+
+        .activity-icon-success {
+            background-color: var(--color-success);
+            border-color: var(--color-success);
+            color: #FFFFFF;
+        }
+
+        .activity-icon-info {
+            background-color: var(--color-info);
+            border-color: var(--color-info);
+            color: #FFFFFF;
+        }
+
+        .activity-content {
+            flex: 1;
+            margin-left: 24px;
+        }
+
+        .activity-title {
+            font-size: 15px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-primary);
+            margin-bottom: 4px;
+        }
+
+        .activity-meta {
+            font-size: 12px;
+            color: var(--color-text-tertiary);
+            margin-bottom: 4px;
+        }
+
+        .activity-description {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1199px) {
+            .grid-cols-3>div:first-child {
+                grid-column: span 3;
+            }
+
+            .grid-cols-3>div:last-child {
+                grid-column: span 3;
+            }
+
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .proposal-header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            .proposal-header-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .proposal-header-actions .btn {
+                width: 100%;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .document-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .document-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .document-actions .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project Tracking & Monitoring - NaCCER AI Platform, CMPDI">
+    <title>Project Tracking - NaCCER AI Platform | CMPDI</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="24" stroke="#FFFFFF" stroke-width="2" />
+                <path d="M25 10L28 20H38L30 26L33 36L25 30L17 36L20 26L12 20H22L25 10Z" fill="#FFFFFF" />
+            </svg>
+            <span>NaCCER AI Platform</span>
+        </div>
+
+        <ul class="navbar-menu hide-mobile">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="proposal-list.html">Proposals</a></li>
+            <li><a href="project-tracking.html" class="active">Projects</a></li>
+            <li><a href="repository.html">Repository</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+
+        <div class="navbar-user">
+            <div class="navbar-avatar">DR</div>
+            <span class="hide-mobile">Dr. Rajesh Kumar</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="project-tracking-main">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="dashboard.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Project Tracking</span>
+            </nav>
+
+            <!-- Page Header -->
+            <div class="page-header-with-action">
+                <div>
+                    <h1>Project Tracking & Monitoring</h1>
+                    <p class="text-secondary">Monitor project progress, milestones, and team performance</p>
+                </div>
+                <div class="project-selector">
+                    <label for="projectSelect" class="form-label" style="margin: 0; margin-right: 8px;">Select
+                        Project:</label>
+                    <select id="projectSelect" class="form-select" style="min-width: 300px;">
+                        <option value="proj-001" selected>AI-Based Coal Quality Assessment System</option>
+                        <option value="proj-002">Automated Mine Safety Monitoring Platform</option>
+                        <option value="proj-003">Renewable Energy Integration Project</option>
+                        <option value="proj-004">Predictive Maintenance System</option>
+                        <option value="proj-005">Digital Twin Technology Implementation</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Project Header Card -->
+            <div class="project-header-card">
+                <div class="project-header-content">
+                    <div class="project-meta">
+                        <span class="monospace project-id">NACCER-PRJ-2023-0042</span>
+                        <span class="badge badge-info">In Progress</span>
+                        <span class="badge badge-success">On Track</span>
+                    </div>
+                    <h2 class="project-title">AI-Based Coal Quality Assessment System</h2>
+                    <div class="project-info-grid">
+                        <div class="info-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>Project Lead: Dr. Rajesh Kumar</span>
+                        </div>
+                        <div class="info-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span>Start Date: Jan 15, 2023</span>
+                        </div>
+                        <div class="info-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span>Expected Completion: Apr 30, 2024</span>
+                        </div>
+                        <div class="info-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <span>Team Size: 6 members</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="overall-progress">
+                    <div class="progress-label">Overall Progress</div>
+                    <div class="progress-value">67%</div>
+                    <div class="progress mt-xs">
+                        <div class="progress-bar" style="width: 67%; background-color: var(--color-info);"></div>
+                    </div>
+                    <div class="progress-meta">8 of 12 months completed</div>
+                </div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+                <div class="card kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon"
+                            style="background-color: rgba(37, 99, 235, 0.1); color: var(--color-primary-blue);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <div class="kpi-label">Budget Utilized</div>
+                    </div>
+                    <div class="kpi-value">₹45.2L / ₹65L</div>
+                    <div class="progress mt-sm">
+                        <div class="progress-bar" style="width: 69%; background-color: var(--color-primary-blue);">
+                        </div>
+                    </div>
+                    <div class="kpi-meta">69% utilized • ₹19.8L remaining</div>
+                </div>
+
+                <div class="card kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon"
+                            style="background-color: rgba(5, 150, 105, 0.1); color: var(--color-success);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="kpi-label">Timeline Progress</div>
+                    </div>
+                    <div class="kpi-value">8 / 12 months</div>
+                    <div class="progress mt-sm">
+                        <div class="progress-bar" style="width: 67%; background-color: var(--color-success);"></div>
+                    </div>
+                    <div class="kpi-meta">67% complete • 4 months remaining</div>
+                </div>
+
+                <div class="card kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon"
+                            style="background-color: rgba(217, 119, 6, 0.1); color: var(--color-warning);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="kpi-label">Milestones Achieved</div>
+                    </div>
+                    <div class="kpi-value">12 / 18</div>
+                    <div class="progress mt-sm">
+                        <div class="progress-bar" style="width: 67%; background-color: var(--color-warning);"></div>
+                    </div>
+                    <div class="kpi-meta">67% complete • 6 milestones pending</div>
+                </div>
+
+                <div class="card kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon"
+                            style="background-color: rgba(30, 58, 138, 0.1); color: var(--color-navy-blue);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M9 11l3 3L22 4"></path>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                            </svg>
+                        </div>
+                        <div class="kpi-label">Deliverables</div>
+                    </div>
+                    <div class="kpi-value">15 / 22</div>
+                    <div class="progress mt-sm">
+                        <div class="progress-bar" style="width: 68%; background-color: var(--color-navy-blue);"></div>
+                    </div>
+                    <div class="kpi-meta">68% complete • 7 deliverables pending</div>
+                </div>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="card mb-md">
+                <div class="card-header">
+                    <h3>Project Timeline</h3>
+                </div>
+                <div class="card-body">
+                    <div class="timeline-visual" id="projectTimeline">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anomaly Detection Alerts -->
+            <div class="alerts-section mb-md" id="anomalyAlerts">
+                <h3 class="section-title">Anomaly Detection Alerts</h3>
+                <div class="alert-cards-grid">
+                    <div class="alert alert-error">
+                        <div class="alert-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                        </div>
+                        <div class="alert-content">
+                            <div class="alert-title">Budget Deviation Alert</div>
+                            <p class="alert-message">Project spending 15% over quarterly allocation</p>
+                            <div class="alert-meta">Detected on Feb 05, 2024 • Severity: High</div>
+                            <div class="alert-action">
+                                <strong>Recommended Action:</strong> Review and reallocate budget from Phase 4 to Phase
+                                3
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <div class="alert-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                </path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="alert-content">
+                            <div class="alert-title">Timeline Risk</div>
+                            <p class="alert-message">Phase 3 Development delayed by 2 weeks</p>
+                            <div class="alert-meta">Detected on Feb 01, 2024 • Severity: Medium</div>
+                            <div class="alert-action">
+                                <strong>Recommended Action:</strong> Allocate additional developer resources to
+                                accelerate Phase 3
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <div class="alert-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                        </div>
+                        <div class="alert-content">
+                            <div class="alert-title">Resource Alert</div>
+                            <p class="alert-message">AI Engineer utilization below 50%</p>
+                            <div class="alert-meta">Detected on Jan 28, 2024 • Severity: Low</div>
+                            <div class="alert-action">
+                                <strong>Recommended Action:</strong> Reassign AI Engineer to parallel tasks or upcoming
+                                milestones
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Milestone Table -->
+            <div class="card mb-md">
+                <div class="card-header">
+                    <h3>Project Milestones</h3>
+                    <button class="btn btn-sm btn-primary">Update Status</button>
+                </div>
+                <div class="card-body" style="padding: 0;">
+                    <div class="table-wrapper">
+                        <table class="table" id="milestonesTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40px;"></th>
+                                    <th>Milestone Name</th>
+                                    <th>Due Date</th>
+                                    <th>Status</th>
+                                    <th>Completion %</th>
+                                    <th>Responsible Person</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="milestonesTableBody">
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="grid grid-cols-2 gap-md">
+                <!-- Progress Reports -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Progress Reports</h3>
+                        <button class="btn btn-sm btn-primary">Submit New Report</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="reports-list" id="progressReports">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Team -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Project Team</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="team-list" id="projectTeam">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documents & Deliverables -->
+            <div class="card mt-md">
+                <div class="card-header">
+                    <h3>Documents & Deliverables</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tabs-container">
+                        <div class="tabs">
+                            <button class="tab active" data-tab="documents"
+                                onclick="switchDocTab('documents')">Documents</button>
+                            <button class="tab" data-tab="deliverables"
+                                onclick="switchDocTab('deliverables')">Deliverables</button>
+                            <button class="tab" data-tab="reports" onclick="switchDocTab('reports')">Reports</button>
+                        </div>
+                    </div>
+                    <div class="tab-content-container mt-md">
+                        <div class="tab-content active" id="documents-tab">
+                            <div class="documents-list" id="documentsList">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="tab-content" id="deliverables-tab">
+                            <div class="documents-list" id="deliverablesList">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="tab-content" id="reports-tab">
+                            <div class="documents-list" id="reportsList">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/project-tracking.js"></script>
+
+    <style>
+        /* Project Tracking Specific Styles */
+        .project-tracking-main {
+            background-color: var(--color-bg-secondary);
+            min-height: calc(100vh - var(--header-height));
+            padding: var(--spacing-lg) 0;
+        }
+
+        .project-selector {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Project Header Card */
+        .project-header-card {
+            background-color: #FFFFFF;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border-primary);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: var(--spacing-lg);
+        }
+
+        .project-header-content {
+            flex: 1;
+        }
+
+        .project-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .project-id {
+            font-size: 14px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-secondary);
+        }
+
+        .project-title {
+            font-size: 24px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .project-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+        }
+
+        .overall-progress {
+            min-width: 200px;
+            text-align: center;
+            padding: var(--spacing-md);
+            background-color: var(--color-bg-secondary);
+            border-radius: var(--radius-md);
+        }
+
+        .progress-label {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .progress-value {
+            font-size: 48px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-info);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .progress-meta {
+            font-size: 12px;
+            color: var(--color-text-tertiary);
+            margin-top: 8px;
+        }
+
+        /* KPI Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .kpi-card {
+            padding: var(--spacing-md);
+        }
+
+        .kpi-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .kpi-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kpi-label {
+            font-size: 13px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+        }
+
+        .kpi-value {
+            font-size: 24px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+        }
+
+        .kpi-meta {
+            font-size: 12px;
+            color: var(--color-text-tertiary);
+            margin-top: 8px;
+        }
+
+        /* Timeline Visual */
+        .timeline-visual {
+            padding: var(--spacing-lg) 0;
+            overflow-x: auto;
+        }
+
+        .timeline-track {
+            display: flex;
+            align-items: center;
+            position: relative;
+            min-width: 100%;
+            padding: 40px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: var(--color-border-secondary);
+            transform: translateY(-50%);
+        }
+
+        .timeline-milestone {
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            border: 4px solid var(--color-border-secondary);
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .timeline-dot.completed {
+            background-color: var(--color-success);
+            border-color: var(--color-success);
+        }
+
+        .timeline-dot.current {
+            background-color: var(--color-info);
+            border-color: var(--color-info);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+        }
+
+        .timeline-dot.overdue {
+            background-color: var(--color-error);
+            border-color: var(--color-error);
+        }
+
+        .timeline-label {
+            font-size: 12px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-primary);
+            text-align: center;
+            max-width: 120px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-date {
+            font-size: 11px;
+            color: var(--color-text-tertiary);
+        }
+
+        /* Alerts Section */
+        .alerts-section {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .alert-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .alert-title {
+            font-size: 15px;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: 4px;
+        }
+
+        .alert-message {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .alert-meta {
+            font-size: 12px;
+            color: var(--color-text-tertiary);
+            margin-bottom: 8px;
+        }
+
+        .alert-action {
+            font-size: 13px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reports List */
+        .reports-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .report-item {
+            padding: var(--spacing-sm);
+            background-color: var(--color-bg-secondary);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border-primary);
+        }
+
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .report-period {
+            font-size: 14px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+        }
+
+        .report-meta {
+            font-size: 12px;
+            color: var(--color-text-tertiary);
+            margin-bottom: 8px;
+        }
+
+        .report-summary {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Team List */
+        .team-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm);
+            background-color: var(--color-bg-secondary);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border-primary);
+        }
+
+        .team-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--color-primary-blue);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-semibold);
+            font-size: 16px;
+        }
+
+        .team-info {
+            flex: 1;
+        }
+
+        .team-name {
+            font-size: 14px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin-bottom: 2px;
+        }
+
+        .team-role {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .team-contact {
+            font-size: 11px;
+            color: var(--color-text-tertiary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1199px) {
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .project-header-card {
+                flex-direction: column;
+            }
+
+            .overall-progress {
+                width: 100%;
+            }
+
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header-with-action {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-sm);
+            }
+
+            .project-selector {
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .project-selector select {
+                width: 100%;
+                min-width: 0;
+            }
+        }
+    </style>
+</body>
+
+</html>
